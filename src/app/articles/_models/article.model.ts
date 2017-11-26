@@ -20,5 +20,6 @@ export class Article {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.votes = votes || 0;
+    return this;
   }
 }

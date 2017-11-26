@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ArticlesModule } from './articles/articles.module';
 import { SharedModule } from './shared/shared.module';
-
 import { AppComponent } from './app.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'article/0', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -15,7 +18,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     ArticlesModule,
     SharedModule

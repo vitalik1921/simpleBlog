@@ -7,14 +7,14 @@ import { Article } from './../../_models/article.model';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  private article: Article;
+  article: Article;
 
   constructor() {
     this.article = new Article('Hello World!', 'this is a content');
+    console.log('article', this.article);
   }
 
   ngOnInit() {
 
   }
-
 }
