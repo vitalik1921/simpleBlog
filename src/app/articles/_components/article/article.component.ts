@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from './../../_models/article.model';
+import { Article } from '../../../shared/_models/article.model';
 
 @Component({
   selector: 'app-article',

@@ -23,4 +23,3 @@ const routes: Routes = [
 })
 
 export class ArticlesModule { }
-export { Article } from './_models/article.model';
