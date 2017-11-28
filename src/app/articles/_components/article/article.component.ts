@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { ArticlesService } from '../../../shared/_services/articles.service';
 import { Article } from '../../../shared/_models/article.model';
 
 @Component({
@@ -9,12 +12,14 @@ import { Article } from '../../../shared/_models/article.model';
 export class ArticleComponent implements OnInit {
   article: Article;
 
-  constructor() {
-    this.article = new Article('Hello World!', 'this is a content');
-    console.log('article', this.article);
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private articlesService: ArticlesService
+  ) { }
 
   ngOnInit() {
-
+    this.route.data.subscribe((data: { article: Article }) => {
+      this.article = data.article;
+    });
   }
 }

@@ -15,3 +15,4 @@ import { FooterComponent } from './_components/footer/footer.component';
   declarations: [HeaderComponent, FooterComponent]
 })
 export class SharedModule { }
+
