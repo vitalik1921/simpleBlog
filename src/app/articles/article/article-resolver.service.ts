@@ -6,8 +6,8 @@ import {
   RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { ArticlesService } from './../../../shared/_services/articles.service';
-import { Article } from '../../../shared/_models/article.model';
+import { ArticlesService } from './../../shared/_services/articles.service';
+import { Article } from '../../shared/_models/article.model';
 
 @Injectable()
 export class ArticleResolverService implements Resolve<Article> {

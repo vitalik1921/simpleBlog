@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ArticleResolverService } from './_components/article/article-resolver.service'
+import { ArticleResolverService } from './article/article-resolver.service'
 import { ArticlesService } from '../shared/_services/articles.service';
 
-import { ArticleComponent } from './_components/article/article.component';
-import { ArchiveComponent } from './_components/archive/archive.component';
+import { ArticleComponent } from './article/article.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 const routes: Routes = [
   {
