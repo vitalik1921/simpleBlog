@@ -16,7 +16,10 @@ const routes: Routes = [
       article: ArticleResolverService
     }
   },
-  { path: 'articles/:page', component: ArchiveComponent }
+  {
+    path: 'articles/:page',
+    component: ArchiveComponent
+  }
 ];
 
 @NgModule({
