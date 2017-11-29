@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
 
 import { Article } from './../_models/article.model';
 
@@ -18,9 +19,9 @@ export class ArticlesService {
   }
 
   getPage(page: number, limit: number): Observable<Article[]> {
-    const urlParams = new URLSearchParams();
-    urlParams.append('page', page.toString());
-    urlParams.append('limit', limit.toString());
+    const urlParams: URLSearchParams = new URLSearchParams();
+    urlParams.set('page', page.toString());
+    urlParams.set('limit', limit.toString());
     return this.http.get(`${this.baseUrl}/article`, { params: urlParams })
       .map((res: Response) => res.json());
   }

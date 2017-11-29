@@ -19,7 +19,7 @@ export class ArchiveResolverService implements Resolve<Array<Article>> {
   resolve(
     route: ActivatedRouteSnapshot
   ): Observable<any> {
-    return this.articlesService.getPage(0, 10);
+    return this.articlesService.getPage(1, 10);
   }
 }
 
