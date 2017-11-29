@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { Http, Response } from '@angular/http';
 
 import { Article } from './../_models/article.model';
 
-
 @Injectable()
 export class ArticlesService {
+  baseUrl = '//5a1dcbe610a6590012095c13.mockapi.io/api/v1';
 
-  constructor() { }
+  constructor(
+    private http: Http
+  ) { }
 
   get(id: string): Observable<Article> {
-    return Observable.of(new Article('Hello World!', 'this is a content'));
+    return this.http.get(`${this.baseUrl}/article/${id}`)
+      .map((res: Response) => res.json());
   }
 
-  getPage(articlesPerPage: number, pageNumber: number): Observable<Array<Article>> {
-    return Observable.of([new Article('Hello World!', 'this is a content')]);
+  getPage(page: number, limit: number): Observable<Array<Article>> {
+    const urlParams = new URLSearchParams();
+    urlParams.append('page', page.toString());
+    urlParams.append('limit', limit.toString());
+    return this.http.get(`${this.baseUrl}/article`, { params: urlParams })
+      .map((res: Response) => res.json());
   }
 
   post(): Observable<Article> {
@@ -25,7 +33,7 @@ export class ArticlesService {
     return Observable.of(new Article('Hello World!', 'this is a content'));
   }
 
-  removeArticle(id: string): Observable<any> {
-    return Observable.of('removed');
+  delete(id: string): Observable<any> {
+    return Observable.of('deleted');
   }
 }

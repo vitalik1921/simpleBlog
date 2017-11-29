@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { ArticlesService } from '../../shared/_services/articles.service';
 import { Article } from '../../shared/_models/article.model';
 
 @Component({
@@ -10,16 +9,17 @@ import { Article } from '../../shared/_models/article.model';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  article: Article;
+  @Input() article: Article;
 
   constructor(
-    private route: ActivatedRoute,
-    private articlesService: ArticlesService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { article: Article }) => {
-      this.article = data.article;
-    });
+    if (!this.article) {
+      this.route.data.subscribe((data: { article: Article }) => {
+        this.article = data.article;
+      });
+    }
   }
 }

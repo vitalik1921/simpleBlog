@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ArticleResolverService } from './article/article-resolver.service'
+import { ArticleResolverService } from './article/article-resolver.service';
+import { ArchiveResolverService } from './archive/archive-resolver.service';
 import { ArticlesService } from '../shared/_services/articles.service';
 
 import { ArticleComponent } from './article/article.component';
@@ -17,8 +18,11 @@ const routes: Routes = [
     }
   },
   {
-    path: 'articles/:page',
-    component: ArchiveComponent
+    path: 'archive',
+    component: ArchiveComponent,
+    resolve: {
+      articles: ArchiveResolverService
+    }
   }
 ];
 
@@ -33,6 +37,7 @@ const routes: Routes = [
   ],
   providers: [
     ArticlesService,
+    ArchiveResolverService,
     ArticleResolverService
   ]
 })

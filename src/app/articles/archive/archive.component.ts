@@ -1,4 +1,6 @@
+import { Article } from './../../shared/_models/article.model';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-archive',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
+  articles: Article[] = [];
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data.subscribe((data: { articles: Array<Article> }) => {
+      this.articles = data.articles;
+    });
   }
-
 }
