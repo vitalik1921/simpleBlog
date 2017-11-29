@@ -15,7 +15,7 @@ export class ArchiveComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: { articles: Array<Article> }) => {
+    this.route.data.subscribe((data: { articles: Article[] }) => {
       this.articles = data.articles;
     });
   }

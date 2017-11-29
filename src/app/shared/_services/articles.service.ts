@@ -17,7 +17,7 @@ export class ArticlesService {
       .map((res: Response) => res.json());
   }
 
-  getPage(page: number, limit: number): Observable<Array<Article>> {
+  getPage(page: number, limit: number): Observable<Article[]> {
     const urlParams = new URLSearchParams();
     urlParams.append('page', page.toString());
     urlParams.append('limit', limit.toString());
