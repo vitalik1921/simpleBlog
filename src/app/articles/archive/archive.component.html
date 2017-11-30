@@ -2,6 +2,6 @@
   <app-article *ngFor="let item of articles" [article]="item"></app-article>
 </div>
 <div class="paginator">
-  <a href="#" class="prev">Prev</a>
-  <a href="#" class="prev">Next</a>
+  <a href="#" (click)="prevPage()" class="prev">Prev</a>
+  <a href="#" (click)="nextPage()" class="next">Next</a>
 </div>

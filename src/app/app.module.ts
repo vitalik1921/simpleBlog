@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'archive', pathMatch: 'full' }
+  { path: '', redirectTo: 'archive/1', pathMatch: 'full' }
 ];
 
 @NgModule({

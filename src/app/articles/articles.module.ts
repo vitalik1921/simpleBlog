@@ -18,7 +18,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'archive',
+    path: 'archive/:page',
     component: ArchiveComponent,
     resolve: {
       articles: ArchiveResolverService
