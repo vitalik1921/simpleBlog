@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule } from '@angular/http';
 
+import { HeaderComponent } from './shared/_components/header/header.component';
+import { FooterComponent } from './shared/_components/footer/footer.component';
 import { ArticlesModule } from './articles/articles.module';
-import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'archive/1', pathMatch: 'full' }
@@ -14,14 +17,16 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
-    ArticlesModule,
-    SharedModule
+    ArticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

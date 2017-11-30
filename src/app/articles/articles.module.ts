@@ -8,6 +8,7 @@ import { ArticlesService } from '../shared/_services/articles.service';
 
 import { ArticleComponent } from './article/article.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { TruncatePipe } from '../shared/_pipes/truncate.pipe';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   declarations: [
+    TruncatePipe,
     ArticleComponent,
     ArchiveComponent
   ],

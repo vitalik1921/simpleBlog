@@ -10,6 +10,7 @@ import { Article } from '../../shared/_models/article.model';
 })
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
+  @Input() short = false;
 
   constructor(
     private route: ActivatedRoute

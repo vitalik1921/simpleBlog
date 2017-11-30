@@ -1,11 +1,16 @@
 <article>
   <header>
     <h1>{{ article.title }}</h1>
-    <time datetime="article.updatedAt">{{ article.updatedAt | date }}</time>
+    <div class="meta">
+      Date: <time datetime="article.updatedAt">{{ article.updatedAt | date }}</time>
+    </div>
   </header>
-  <div>
-    {{ article.content }}
+  <div *ngIf="short; else long">
+      {{ article.content | truncate : [400, '...'] }}
   </div>
+  <ng-template #long>
+      {{ article.content }}
+  </ng-template>
   <footer>
     <div class="votes">
       <span>Votes: </span>
