@@ -1,14 +1,19 @@
 <article>
   <header>
-    <h1>{{ article.title }}</h1>
+    <h1 *ngIf="short; else longTitle">
+      <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
+    </h1>
+    <ng-template #longTitle>
+        <h1>{{ article.title }}</h1>
+    </ng-template>
     <div class="meta">
       Date: <time datetime="article.updatedAt">{{ article.updatedAt | date }}</time>
     </div>
   </header>
-  <div *ngIf="short; else long">
+  <div *ngIf="short; else longContent">
       {{ article.content | truncate : [400, '...'] }}
   </div>
-  <ng-template #long>
+  <ng-template #longContent>
       {{ article.content }}
   </ng-template>
   <footer>
