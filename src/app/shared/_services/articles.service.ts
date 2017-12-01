@@ -26,15 +26,15 @@ export class ArticlesService {
       .map((res: Response) => res.json());
   }
 
-  post(): Observable<Article> {
-    return Observable.of(new Article('Hello World!', 'this is a content'));
-  }
+  // post(): Observable<Article> {
+  //   return Observable.of(new Article('Hello World!', 'this is a content'));
+  // }
 
-  put(article: Article): Observable<Article>  {
-    return Observable.of(new Article('Hello World!', 'this is a content'));
-  }
+  // put(article: Article): Observable<Article>  {
+  //   return Observable.of(new Article('Hello World!', 'this is a content'));
+  // }
 
-  delete(id: string): Observable<any> {
-    return Observable.of('deleted');
-  }
+  // delete(id: string): Observable<any> {
+  //   return Observable.of('deleted');
+  // }
 }

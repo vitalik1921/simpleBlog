@@ -1,7 +1,8 @@
 app-header {
   display: block;
-  margin-bottom: 50px;
 }
 .container {
+  padding-top: 50px;
   max-width: 960px;
+  min-height: calc(100vh - 88px);
 }
