@@ -10,11 +10,10 @@
       Date: <time datetime="article.updatedAt">{{ article.updatedAt | date }}</time>
     </div>
   </header>
-  <div *ngIf="short; else longContent">
-      {{ article.content | truncate : [400, '...'] }}
+  <div *ngIf="short; else longContent" [innerHTML]="article.content | truncate : [400, '...'] | markdown">
   </div>
   <ng-template #longContent>
-      {{ article.content }}
+      <div [innerHTML]="article.content | markdown"></div>
   </ng-template>
   <footer>
     <div class="votes">

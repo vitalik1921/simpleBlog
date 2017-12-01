@@ -9,6 +9,7 @@ import { ArticlesService } from '../shared/_services/articles.service';
 import { ArticleComponent } from './article/article.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { TruncatePipe } from '../shared/_pipes/truncate.pipe';
+import { MarkdownPipe } from './../shared/_pipes/markdown.pipe';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
   ],
   declarations: [
     TruncatePipe,
+    MarkdownPipe,
     ArticleComponent,
     ArchiveComponent
   ],

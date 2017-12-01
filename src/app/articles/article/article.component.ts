@@ -10,7 +10,6 @@ import { MarkedOptions } from 'marked';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  private md: any;
   @Input() article: Article;
   @Input() short = false;
 

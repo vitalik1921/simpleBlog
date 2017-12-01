@@ -10,7 +10,6 @@ import { FooterComponent } from './shared/_components/footer/footer.component';
 import { ArticlesModule } from './articles/articles.module';
 import { AppComponent } from './app.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'archive/1', pathMatch: 'full' }
 ];
