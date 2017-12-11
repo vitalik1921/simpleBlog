@@ -1,18 +1,22 @@
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { AccessToken } from './../_models/token.model';
+
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
-  login(email: string, password: string) {
-    this.http.post('/api/v1/login', JSON.stringify({ email: email, password: password }))
-      .map((res: Response) => {
-        const user = res.json();
-        if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
+  login(email: string, password: string): Observable<AccessToken> {
+    return this.http.post<AccessToken>('/api/v1/login', { email: email, password: password })
+      .map((accessToken: AccessToken) => {
+        if (accessToken && accessToken.token) {
+          localStorage.setItem('currentUser', JSON.stringify(AccessToken));
         }
+        return accessToken;
       });
   }
 
