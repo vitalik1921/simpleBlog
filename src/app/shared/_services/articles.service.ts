@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { Http, Response } from '@angular/http';
-import { URLSearchParams } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Article } from './../_models/article.model';
 
@@ -10,20 +9,19 @@ export class ArticlesService {
   baseUrl = '//5a1dcbe610a6590012095c13.mockapi.io/api/v1';
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   get(id: string): Observable<Article> {
-    return this.http.get(`${this.baseUrl}/article/${id}`)
-      .map((res: Response) => res.json());
+    return this.http.get<Article>(`${this.baseUrl}/article/${id}`);
   }
 
-  getPage(page: number, limit: number): Observable<Article[]> {
-    const urlParams: URLSearchParams = new URLSearchParams();
+  getPage(page: number, limit: number, userId: string = null): Observable<Article[]> {
+    const urlParams = new HttpParams();
     urlParams.set('page', page.toString());
     urlParams.set('limit', limit.toString());
-    return this.http.get(`${this.baseUrl}/article`, { params: urlParams })
-      .map((res: Response) => res.json());
+    urlParams.set('userId', userId);
+    return this.http.get<Article[]>(`${this.baseUrl}/article`, { params: urlParams });
   }
 
   // post(): Observable<Article> {
