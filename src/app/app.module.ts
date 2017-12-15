@@ -1,19 +1,19 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { AuthModule } from './auth/auth.module';
-import { AuthService } from './shared/_services/auth.service';
-import { ArticlesModule } from './articles/articles.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/_components/header/header.component';
+import { ArticlesModule } from './articles/articles.module';
+import { AuthModule } from './auth/auth.module';
 import { FooterComponent } from './shared/_components/footer/footer.component';
+import { HeaderComponent } from './shared/_components/header/header.component';
 import { AuthInterceptor } from './shared/_services/auth.interceptor';
-
+import { AuthService } from './shared/_services/auth.service';
+import { APP_CONFIG, CONFIG } from './config';
 
 const routes: Routes = [
   { path: '', redirectTo: 'archive/1', pathMatch: 'full' }
@@ -40,6 +40,10 @@ const routes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    {
+      provide: APP_CONFIG,
+      useValue: CONFIG
     }
   ],
   bootstrap: [AppComponent]

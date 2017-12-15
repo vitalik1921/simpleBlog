@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { AccessToken } from './../_models/token.model';
-
+import { APP_CONFIG, AppConfig } from '../../config';
+import { AccessToken } from '../_models/token.model';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    @Inject(APP_CONFIG) private config: AppConfig
+  ) { }
 
   login(email: string, password: string): Observable<AccessToken> {
-    return this.http.post<AccessToken>('/api/v1/login', { email: email, password: password })
+    return this.http.post<AccessToken>(`${this.config.baseUrl}/api/v1/login`, { email: email, password: password })
       .map((accessToken: AccessToken) => {
         if (accessToken && accessToken.token) {
           localStorage.setItem('currentUser', JSON.stringify(AccessToken));
