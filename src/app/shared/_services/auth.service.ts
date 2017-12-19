@@ -15,10 +15,11 @@ export class AuthService {
   ) { }
 
   login(email: string, password: string): Observable<AccessToken> {
-    return this.http.post<AccessToken>(`${this.config.baseUrl}/api/v1/login`, { email: email, password: password })
+    return this.http.post<AccessToken>(`${this.config.baseUrl}/api/v1/user/login`, { email: email, password: password })
       .map((accessToken: AccessToken) => {
-        if (accessToken && accessToken.token) {
-          localStorage.setItem('currentUser', JSON.stringify(AccessToken));
+        if (accessToken) {
+          console.log('accessToken', accessToken);
+          localStorage.setItem('accessToken', JSON.stringify(accessToken));
         }
         return accessToken;
       });
@@ -29,7 +30,7 @@ export class AuthService {
   }
 
   getUserToken() {
-    const user = localStorage.getItem('currentUser');
-    return user ? JSON.parse(user).token : null;
+    const accessToken = localStorage.getItem('accessToken');
+    return accessToken ? JSON.parse(accessToken).userId : null;
   }
 }

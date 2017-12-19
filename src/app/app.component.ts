@@ -8,7 +8,7 @@ import { AlertsService } from './shared/_services/alerts.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private alerts: Array<IAlert> = [];
+  public alerts: Array<IAlert> = [];
 
   constructor(private alertsService: AlertsService) {
     this.alertsService.alertMessage.subscribe((alert) => {

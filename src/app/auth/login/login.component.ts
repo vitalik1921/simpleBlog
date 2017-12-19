@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http/src/response';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Router } from '@angular/router';
@@ -15,8 +15,8 @@ import { AlertTypes } from '../../shared/interfaces';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnDestroy {
-  private email: string;
-  private password: string;
+  public email: string;
+  public password: string;
   private loginObserve: Subscription;
 
   constructor(
@@ -29,8 +29,9 @@ export class LoginComponent implements OnDestroy {
     this.loginObserve = this.authService.login(this.email, this.password)
       .subscribe((token: AccessToken) => {
         this.router.navigate(['article', '1']);
-      }, (error: HttpErrorResponse) => {
-        this.alertService.addAlert(AlertTypes.danger, error.message);
+      }, (error: any) => {
+        const message = error.status === 403 ? 'Incorrect email or password' : error.message;
+        this.alertService.addAlert(AlertTypes.danger, message);
       });
   }
 
