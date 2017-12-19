@@ -1,8 +1,15 @@
 app-header {
   display: block;
 }
-.container {
+section {
   padding-top: 50px;
   max-width: 960px;
   min-height: calc(100vh - 88px);
+}
+
+ngb-alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }

@@ -1,10 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { isDevMode } from '@angular/core';
-
-interface AppConfig {
-  pageLimit: number;
-  baseUrl: string;
-}
+import { AppConfig } from './shared/interfaces';
 
 const appConfig: AppConfig = {
   pageLimit: 5,

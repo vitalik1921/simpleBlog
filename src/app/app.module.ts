@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { APP_CONFIG, CONFIG } from './config';
 import { FooterComponent } from './shared/_components/footer/footer.component';
 import { HeaderComponent } from './shared/_components/header/header.component';
+import { AlertsService } from './shared/_services/alerts.service';
 import { AuthInterceptor } from './shared/_services/auth.interceptor';
 import { AuthService } from './shared/_services/auth.service';
 
@@ -35,6 +36,7 @@ const routes: Routes = [
     ArticlesModule
   ],
   providers: [
+    AlertsService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

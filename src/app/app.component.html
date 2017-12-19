@@ -1,4 +1,9 @@
 <app-header></app-header>
+<div class="alerts">
+  <p *ngFor="let alert of alerts">
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+  </p>
+</div>
 <section class="container">
   <router-outlet></router-outlet>
 </section>
