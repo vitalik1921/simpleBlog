@@ -13,7 +13,8 @@ const appConfig: AppConfig = {
 
 const devAppConfig: AppConfig = {
   pageLimit: 5,
-  baseUrl: '//localhost:3000'
+  // baseUrl: '//localhost:3000'
+  baseUrl: '//5a1dcbe610a6590012095c13.mockapi.io/api/v1/'
 };
 
 const CONFIG = isDevMode ? devAppConfig : appConfig;

@@ -1,12 +1,12 @@
-<form action="post">
+<form (ngSubmit)="submit()" action="post">
   <div class="fieldset">
     <div class="form-group">
       <label for="login">Login:</label>
-      <input class="form-control" type="text" name="login" id="login">
+      <input [(ngModel)]="email" class="form-control" type="text" name="email" id="email">
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input class="form-control" type="password" name="password" id="password">
+      <input  [(ngModel)]="password" class="form-control" type="password" name="password" id="password">
     </div>
   </div>
   <div class="fieldset">

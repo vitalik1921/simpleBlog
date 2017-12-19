@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { APP_CONFIG, AppConfig } from '../../config';
 import { AccessToken } from '../_models/token.model';
+import { HttpErrorResponse } from '@angular/common/http/src/response';
 
 @Injectable()
 export class AuthService {
