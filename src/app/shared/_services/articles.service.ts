@@ -16,12 +16,22 @@ export class ArticlesService {
     return this.http.get<Article>(`${this.config.baseUrl}/api/v1/article/${id}`);
   }
 
-  getPage(page: number, limit: number, userId: string = null): Observable<Article[]> {
+  getPage(page: number, userId: string = null): Observable<Article[]> {
     const urlParams = new HttpParams()
       .set('page', page.toString())
-      .set('limit', limit.toString())
+      .set('limit', this.config.pageLimit.toString())
       .set('userId', userId);
     return this.http.get<Article[]>(`${this.config.baseUrl}/api/v1/article`, { params: urlParams });
+  }
+
+  isPage(page: number, limit: number, userId: string = null): Promise<boolean> {
+    return this.getPage(page, userId).toPromise()
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
   }
 
   // post(): Observable<Article> {

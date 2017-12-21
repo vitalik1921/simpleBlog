@@ -15,7 +15,6 @@ export class ArchiveResolverService implements Resolve<Array<Article>> {
   ) { }
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.articlesService.getPage(route.params['page'] || 1,
-      route.params['limit'] || this.config.pageLimit,
       route.queryParams['userId'] || null);
   }
 }
