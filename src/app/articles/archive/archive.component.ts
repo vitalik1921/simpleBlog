@@ -8,18 +8,18 @@ import { Router } from '@angular/router';
   templateUrl: './archive.component.html',
   styleUrls: ['./archive.component.scss']
 })
-export class ArchiveComponent implements OnInit {
+export class ArchiveComponent {
   articles: Article[] = [];
   currentPage = 1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router
-  ) { }
-
-  ngOnInit() {
+  ) {
     this.route.data.subscribe((data: { articles: Article[] }) => {
       this.articles = data.articles;
+    }, (err) => {
+      console.log('error hello');
     });
     this.route.params.subscribe((params) => {
       this.currentPage = parseInt(params.page, 0);

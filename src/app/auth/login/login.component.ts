@@ -28,7 +28,7 @@ export class LoginComponent implements OnDestroy {
   submit() {
     this.loginObserve = this.authService.login(this.email, this.password)
       .subscribe((token: AccessToken) => {
-        this.router.navigate(['article', '1']);
+        this.router.navigate(['archive', '1']);
       }, (error: any) => {
         const message = error.status === 403 ? 'Incorrect email or password' : error.message;
         this.alertService.addAlert(AlertTypes.danger, message);

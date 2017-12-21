@@ -13,15 +13,15 @@ export class ArticlesService {
   ) { }
 
   get(id: string): Observable<Article> {
-    return this.http.get<Article>(`${this.config.baseUrl}/article/${id}`);
+    return this.http.get<Article>(`${this.config.baseUrl}/api/v1/article/${id}`);
   }
 
   getPage(page: number, limit: number, userId: string = null): Observable<Article[]> {
-    const urlParams = new HttpParams();
-    urlParams.set('page', page.toString());
-    urlParams.set('limit', limit.toString());
-    urlParams.set('userId', userId);
-    return this.http.get<Article[]>(`${this.config.baseUrl}/article`, { params: urlParams });
+    const urlParams = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString())
+      .set('userId', userId);
+    return this.http.get<Article[]>(`${this.config.baseUrl}/api/v1/article`, { params: urlParams });
   }
 
   // post(): Observable<Article> {
