@@ -18,7 +18,6 @@ export class AuthService {
     return this.http.post<AccessToken>(`${this.config.baseUrl}/api/v1/user/login`, { email: email, password: password })
       .map((accessToken: AccessToken) => {
         if (accessToken) {
-          console.log('accessToken', accessToken);
           localStorage.setItem('accessToken', JSON.stringify(accessToken));
         }
         return accessToken;

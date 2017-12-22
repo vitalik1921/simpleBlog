@@ -1,7 +1,7 @@
 <article>
   <header>
     <h1 *ngIf="short; else longTitle">
-      <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
+      <a [routerLink]="['/article', article._id]">{{ article.title }}</a>
     </h1>
     <ng-template #longTitle>
         <h1>{{ article.title }}</h1>
