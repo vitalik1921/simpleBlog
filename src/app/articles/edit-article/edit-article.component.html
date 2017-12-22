@@ -1,0 +1,9 @@
+<section class="edit-area">
+  <h6>Markdown:</h6>
+  <textarea [(ngModel)]="article" name="article" id="article" cols="30" rows="20"></textarea>
+</section>
+<section class="view-area">
+    <h6>Preview:</h6>
+  <div [innerHTML]="article | markdown" class="content"></div>
+</section>
+

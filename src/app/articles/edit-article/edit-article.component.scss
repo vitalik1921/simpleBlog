@@ -1,0 +1,21 @@
+.edit-area {
+  margin-bottom: 20px;
+  textarea {
+    display: block;
+    width: 100%;
+    background-color: antiquewhite;
+    outline: none;
+    resize: none;
+  }
+}
+
+.view-area {
+  margin-bottom: 20px;
+  div {
+    width: 100%;
+    padding: 20px;
+    background-color: lightgray;
+    min-height: 300px;
+  }
+}
+

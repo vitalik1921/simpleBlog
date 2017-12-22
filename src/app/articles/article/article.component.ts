@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Article } from '../../shared/_models/article.model';
-import { MarkedOptions } from 'marked';
 
 @Component({
   selector: 'app-article',
